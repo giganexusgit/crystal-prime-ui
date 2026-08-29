@@ -407,6 +407,7 @@ import {
   updateInventoryUrl,
   deleteInventoryUrl,
   createInventoryUrl,
+  getInventoryHistoryUrl,
 } from "./urls";
 import {
   IClientDetails,
@@ -3387,6 +3388,17 @@ export class CommunityClient extends ApiClient {
       createInventoryHistoryUrl(),
       payload,
     );
+
+    if (!response?.success) {
+      throw response?.response?.data;
+    }
+
+    return response?.data;
+  };
+
+  // get Inventory history
+  public getInventoryHistory = async () => {
+    const response = await this.get(getInventoryHistoryUrl());
 
     if (!response?.success) {
       throw response?.response?.data;

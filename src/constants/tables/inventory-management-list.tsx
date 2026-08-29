@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Checkbox } from "@/components";
@@ -112,6 +113,40 @@ export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
   },
   {
     header: "Vendor Name",
+    accessor: "vendorName",
+  },
+];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const stockOutColumns: any = [
+  {
+    header: "Date",
+    accessor: "date",
+  },
+  {
+    header: "Name",
+    accessor: "name",
+  },
+  {
+    header: "Total Quantity",
+    accessor: "totalQuantity",
+  },
+
+  {
+    header: "Used Quantity",
+    accessor: "used",
+  },
+
+  {
+    header: "Available Quantity",
+    accessor: "availableQuantity",
+  },
+
+  {
+    header: "Stock Location",
+    accessor: "stockLocation",
+  },
+  {
+    header: "Vendor",
     accessor: "vendorName",
   },
 ];

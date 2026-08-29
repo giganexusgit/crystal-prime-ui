@@ -461,6 +461,8 @@ export const deleteMaterialBrandUrl = (id: string) => `/material-brand/${id}`; /
 
 export const createInventoryHistoryUrl = () => `/inventory-history`;
 
+export const getInventoryHistoryUrl = () => `/inventory-history`;
+
 export const inventoryHistoryByMaterialUrl = (materialId: string) =>
   `/inventory-history?inventoryId=${materialId}`;
 

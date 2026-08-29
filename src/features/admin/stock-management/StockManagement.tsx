@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useEffect, useMemo, useState } from "react";
 
@@ -8,6 +9,8 @@ import { useAllInventoryQuery } from "@/services/apis/clients/community-client/q
 import { Breadcrumb } from "../breadcrumb";
 import { AddMaterialModal, MaterialFilters } from "./components";
 import { MaterialListTable } from "./components/material-list-table";
+import { StockOutListTable } from "./components/material-list-table/StockOutListTable";
+import { useAllInventoryStockOutQuery } from "@/services/apis/clients/community-client/query-hooks/useAllInventoryStockOutQuery";
 
 export function StockManagement() {
   const [searchInput, setSearchInput] = useState("");
@@ -32,6 +35,8 @@ export function StockManagement() {
   );
 
   const { allMaterialsData, fetchAllMaterials } = useAllInventoryQuery(filters);
+  const { allStockOutData, fetchAllStockOut } = useAllInventoryStockOutQuery();
+  console.log("allStockOutData", allStockOutData);
 
   // Reset to first page when search changes
   useEffect(() => {
@@ -80,6 +85,15 @@ export function StockManagement() {
           onEdit={handleEditMaterial}
           data={allMaterialsData?.data || []}
           onRefetch={fetchAllMaterials}
+          paginationData={allMaterialsData?.pagination}
+          onPageChange={handlePageChange}
+        />
+
+        <h1 className="text-xl font-medium">Stock Out</h1>
+
+        <StockOutListTable
+          data={(allStockOutData as any)?.data || []}
+          onRefetch={fetchAllStockOut}
           paginationData={allMaterialsData?.pagination}
           onPageChange={handlePageChange}
         />
