@@ -33,6 +33,8 @@ export interface IAddStaffFormValues {
   date?: any;
   stockLocation?: string;
   vendorName?: string;
+  specification?: string;
+  category?: string;
   purchasePrice: string;
   salesPrice: string;
   salesDescription: string;
@@ -55,6 +57,8 @@ const validationSchema = Yup.object({
   date: Yup.string().optional(),
   stockLocation: Yup.string().optional(),
   vendorName: Yup.string().optional(),
+  specification: Yup.string().optional(),
+  category: Yup.string().optional(),
   type: Yup.string().optional(),
   gst: Yup.string().optional(),
   purchasePrice: Yup.string().optional(),
@@ -162,6 +166,8 @@ export function AddMaterialModal({
           date: initialData?.date?.toString() || "",
           stockLocation: initialData?.stockLocation?.toString() || "",
           vendorName: initialData?.vendorName?.toString() || "",
+          specification: initialData?.specification?.toString() || "",
+          category: initialData?.category?.toString() || "",
           purchasePrice: initialData?.purchase_price?.toString() || "",
           salesPrice: initialData?.sales_price?.toString() || "",
           salesDescription: initialData?.sales_description || "",
@@ -196,6 +202,8 @@ export function AddMaterialModal({
             minqty: Number(values.minqty),
             stockLocation: values.stockLocation,
             vendorName: values.vendorName,
+            specification: values.specification,
+            category: values.category,
             date: values.date,
             purchase_price: Number(values.purchasePrice),
             sales_price: Number(values.salesPrice),
@@ -325,6 +333,39 @@ export function AddMaterialModal({
                   onBlur={handleBlur}
                   placeholder="Vendor Name"
                   error={touched.vendorName && errors.vendorName}
+                />
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Specification
+                  </label>
+
+                  <select
+                    name="specification"
+                    value={values.specification}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="w-full rounded-md border border-gray-300 px-3 py-2"
+                  >
+                    <option value="">Select Specification</option>
+                    <option value="qty">Qty</option>
+                    <option value="size">Size</option>
+                    <option value="kg">Kg</option>
+                  </select>
+
+                  {touched.specification && errors.specification && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors.specification}
+                    </p>
+                  )}
+                </div>
+                <InputField
+                  label="Category"
+                  name="category"
+                  value={values.category}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Category"
+                  error={touched.category && errors.category}
                 />
               </div>
 

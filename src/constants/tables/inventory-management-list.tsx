@@ -21,6 +21,8 @@ export interface IMaterialManagementProps {
   date?: string;
   stockLocation?: string;
   vendorName?: string;
+  category?: string;
+  specification?: string;
   quantity?: number; // API response field
   purchase_price?: string;
   sales_price?: string;
@@ -114,6 +116,14 @@ export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
   {
     header: "Vendor Name",
     accessor: "vendorName",
+  },
+  {
+    header: "Specification",
+    accessor: "specification",
+  },
+  {
+    header: "Category",
+    accessor: "category",
   },
 ];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

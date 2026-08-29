@@ -48,16 +48,18 @@ export function StockOutListTable({
   const closeTab = () => setOpenTab(false);
 
   // Use the data passed as props
-  const normalizedData = (data || []).map((item: any) => ({
-    ...item,
-    name: item.inventory?.name ?? "N/A",
-    purchasePrice: item.inventory?.purchase_price ?? "N/A",
-    salesPrice: item.inventory?.sales_price ?? "N/A",
-    totalQuantity: item.inventory?.quantity ?? "N/A",
-    availableQuantity: (item.inventory?.quantity ?? 0) - (item.used ?? 0),
-    stockLocation: item.inventory?.stockLocation ?? "N/A",
-    vendorName: item.inventory?.vendorName ?? "N/A",
-  }));
+  const normalizedData = (data || [])
+    .filter((item: any) => item.deleted !== true)
+    .map((item: any) => ({
+      ...item,
+      name: item.inventory?.name ?? "N/A",
+      purchasePrice: item.inventory?.purchase_price ?? "N/A",
+      salesPrice: item.inventory?.sales_price ?? "N/A",
+      totalQuantity: item.inventory?.quantity ?? "N/A",
+      availableQuantity: (item.inventory?.quantity ?? 0) - (item.used ?? 0),
+      stockLocation: item.inventory?.stockLocation ?? "N/A",
+      vendorName: item.inventory?.vendorName ?? "N/A",
+    }));
   // Create columns with interactive checkbox for 'active'
 
   if (normalizedData.length === 0)

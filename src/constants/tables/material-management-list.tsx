@@ -19,6 +19,8 @@ export interface IMaterialManagementProps {
   date?: string;
   stockLocation?: string;
   vendorName?: string;
+  specification?: string;
+  category?: string;
   quantity?: number; // API response field
   purchase_price?: string;
   sales_price?: string;

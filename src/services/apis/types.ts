@@ -1468,7 +1468,7 @@ export interface ICreateProjectPayload {
   name: string;
   description?: string;
   project_type?: string;
-  budget?: number;  
+  budget?: number;
   estimated_cost?: number;
   cost_of_labour?: number;
   extra_cost?: number;
@@ -2601,6 +2601,8 @@ export interface IAllMaterialsList {
   date?: any;
   stockLocation?: string;
   vendorName?: string;
+  specification?: string;
+  category?: string;
   discount?: number;
   photos?: string[];
   active: boolean;
