@@ -68,6 +68,11 @@ export const leadsListColumn: ITableColumn<ILeadsListProps>[] = [
     ),
   },
   {
+    header: "REMARK",
+    accessor: "remark",
+    headerClassName: "min-w-[10rem] ",
+  },
+  {
     header: "FIRST NAME",
     accessor: "first_name",
     headerClassName: "min-w-[10rem] ",
@@ -112,11 +117,7 @@ export const leadsListColumn: ITableColumn<ILeadsListProps>[] = [
     accessor: "budget",
     headerClassName: "min-w-[10rem] ",
   },
-  {
-    header: "REMARK",
-    accessor: "remark",
-    headerClassName: "min-w-[10rem] ",
-  },
+
   {
     header: "POSSIBILITY OF CONVERSION",
     accessor: "possibility_of_conversion",
@@ -170,7 +171,11 @@ export const leadsListColumnForStaff: ITableColumn<ILeadsListProps>[] = [
       </span>
     ),
   },
-
+  {
+    header: "REMARK",
+    accessor: "remark",
+    headerClassName: "min-w-[10rem] ",
+  },
   {
     header: "LOCATION",
     accessor: "location",
@@ -202,11 +207,7 @@ export const leadsListColumnForStaff: ITableColumn<ILeadsListProps>[] = [
     accessor: "budget",
     headerClassName: "min-w-[10rem] ",
   },
-  {
-    header: "REMARK",
-    accessor: "remark",
-    headerClassName: "min-w-[10rem] ",
-  },
+
   {
     header: "POSSIBILITY OF CONVERSION",
     accessor: "possibility_of_conversion",
