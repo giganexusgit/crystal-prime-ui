@@ -10,6 +10,7 @@ const ALL_CLIENT_QUERY_KEY = "all-client-query-key";
  * This hook fetches a list of all the client list in the bloom portal.
  */
 export interface ClientFilters {
+  assignedToId?: string;
   searchText?: string;
   page?: number;
   limit?: number;
