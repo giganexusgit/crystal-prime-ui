@@ -17,6 +17,8 @@ export interface ClientFilters {
 }
 
 export const useAllClientQuery = (filters: ClientFilters = {}) => {
+  console.log("filters", filters);
+
   const { data, isError, error, isLoading, isPending, refetch } = useQuery({
     queryKey: [ALL_CLIENT_QUERY_KEY, filters],
     queryFn: () =>

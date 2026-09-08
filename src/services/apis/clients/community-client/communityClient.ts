@@ -1085,6 +1085,8 @@ export class CommunityClient extends ApiClient {
       page?: number;
     } = {},
   ) => {
+    console.log("filters",filters);
+    
     // Build query string from filters
     const params = new URLSearchParams();
     if (filters.searchText) params.append("searchText", filters.searchText);

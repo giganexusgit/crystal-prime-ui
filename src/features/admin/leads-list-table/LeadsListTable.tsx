@@ -195,6 +195,9 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
     onChangeCb: () => {}, // not needed for this use case
   });
 
+  const { activeSession } = useAuthStore();
+  const userRole = activeSession?.user?.role?.role || "";
+
   const filters = useMemo(
     () => ({
       searchText: searchQuery,
@@ -207,13 +210,15 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
       dateRange: dateRangeFilter,
       followupFrom: followupFromDate || undefined,
       followupTo: followupToDate || undefined,
-      assignedToId: selectedAssignedToId || undefined,
+      assignedToId:
+        selectedAssignedToId || activeSession?.user?.id || undefined,
       assignedTo:
         selectedAssignedTo && selectedAssignedTo !== "All Assigned To"
           ? selectedAssignedTo
           : undefined,
       page: currentPage,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       searchQuery,
       selectedStatus,
@@ -294,6 +299,7 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
       setPendingStatusName(null);
     }
   }, [pendingStatusName, allStatusesData]);
+  console.log("filters", filters);
 
   const {
     data: allLeadList,
@@ -302,6 +308,7 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
     error,
   } = useAllLeadsListQuery(filters);
   // moved above for dependency usage
+  console.log("allLeadList", allLeadList);
 
   const { onAllLeadDownloadExcel } = useAllLeadDownloadExcelQuery();
   const { onLeadDownloadTemplateExcel } = useLeadDownloadTemplateExcelQuery();
