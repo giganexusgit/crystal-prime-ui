@@ -7,8 +7,8 @@
 6 silly config load:file:C:\Users\Admin\AppData\Roaming\npm\etc\npmrc
 7 verbose title npm config get prefix
 8 verbose argv "config" "get" "prefix"
-9 verbose logfile logs-max:10 dir:C:\Users\Admin\Documents\SearchX Digital\crystal prime\crystal-prime-ui\npm-cache\_logs\2026-08-17T12_18_14_919Z-
-10 verbose logfile C:\Users\Admin\Documents\SearchX Digital\crystal prime\crystal-prime-ui\npm-cache\_logs\2026-08-17T12_18_14_919Z-debug-0.log
+9 verbose logfile logs-max:10 dir:C:\Users\Admin\Documents\SearchX Digital\crystal prime\crystal-prime-ui\npm-cache\_logs\2026-09-05T10_17_26_455Z-
+10 verbose logfile C:\Users\Admin\Documents\SearchX Digital\crystal prime\crystal-prime-ui\npm-cache\_logs\2026-09-05T10_17_26_455Z-debug-0.log
 11 verbose cwd c:\Users\Admin\Documents\SearchX Digital\crystal prime\crystal-prime-ui
 12 verbose os Windows_NT 10.0.19045
 13 verbose node v20.19.6

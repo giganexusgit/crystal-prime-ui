@@ -1,11 +1,10 @@
-
-import { useQuery } from '@/services';
-import { COMMUNITY_CLIENT } from '../communityClient';
+import { useQuery } from "@/services";
+import { COMMUNITY_CLIENT } from "../communityClient";
 
 /**
  * This is to track the list of client list from the backend.
  */
-const ALL_CLIENT_QUERY_KEY = 'all-client-query-key';
+const ALL_CLIENT_QUERY_KEY = "all-client-query-key";
 
 /**
  * This hook fetches a list of all the client list in the bloom portal.
@@ -19,8 +18,14 @@ export interface ClientFilters {
 export const useAllClientQuery = (filters: ClientFilters = {}) => {
   const { data, isError, error, isLoading, isPending, refetch } = useQuery({
     queryKey: [ALL_CLIENT_QUERY_KEY, filters],
-    queryFn: () => COMMUNITY_CLIENT.fetchAllClient(filters.searchText, filters.page, filters.limit),
-    networkMode: 'always',
+    queryFn: () =>
+      COMMUNITY_CLIENT.fetchAllClient(
+        filters.searchText,
+        filters.page,
+        filters.limit,
+        filters.assignedToId,
+      ),
+    networkMode: "always",
   });
 
   return {

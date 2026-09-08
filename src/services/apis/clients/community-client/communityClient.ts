@@ -1491,11 +1491,13 @@ export class CommunityClient extends ApiClient {
     searchText?: string,
     page?: number,
     limit?: number,
+    assignedToId?: string,
   ) => {
     const params = new URLSearchParams();
     if (searchText) params.append("searchText", searchText);
     if (page) params.append("page", page.toString());
     if (limit) params.append("limit", limit.toString());
+    if (assignedToId) params.append("assignedToId", assignedToId);
     const url = params.toString()
       ? `${fetchAllClientUrl()}?${params.toString()}`
       : fetchAllClientUrl();
