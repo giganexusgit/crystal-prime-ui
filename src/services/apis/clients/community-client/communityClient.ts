@@ -1083,10 +1083,11 @@ export class CommunityClient extends ApiClient {
       followupFrom?: string;
       followupTo?: string;
       page?: number;
+      assignedToId?: string;
     } = {},
   ) => {
-    console.log("filters",filters);
-    
+    console.log("filters", filters);
+
     // Build query string from filters
     const params = new URLSearchParams();
     if (filters.searchText) params.append("searchText", filters.searchText);
@@ -1096,6 +1097,8 @@ export class CommunityClient extends ApiClient {
       params.append("typeId", filters.typeId);
     if (filters.assignedTo && filters.assignedTo !== "All Assigned To")
       params.append("assignedToId", filters.assignedTo);
+    if (filters.assignedToId && filters.assignedToId !== "All Assigned To")
+      params.append("assignedToId", filters.assignedToId);
     if (filters.dateRange && filters.dateRange !== "All")
       params.append("dateRange", filters.dateRange);
     if (filters.referenceDate)
