@@ -232,8 +232,8 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
     ],
   );
 
-  const { activeSession } = useAuthStore();
-  const userRole = activeSession?.user?.role?.role || "";
+  // const { activeSession } = useAuthStore();
+  // const userRole = activeSession?.user?.role?.role || "";
 
   // React to card clicks from LeadManagement cards
   useEffect(() => {
