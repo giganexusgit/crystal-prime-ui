@@ -77,11 +77,7 @@ export const leadsListColumn: ITableColumn<ILeadsListProps>[] = [
     accessor: "first_name",
     headerClassName: "min-w-[10rem] ",
   },
-  {
-    header: "LAST NAME",
-    accessor: "last_name",
-    headerClassName: "min-w-[10rem] ",
-  },
+
   {
     header: "PHONE",
     accessor: "phone",
@@ -96,6 +92,11 @@ export const leadsListColumn: ITableColumn<ILeadsListProps>[] = [
     header: "REQUIREMENT",
     accessor: "requirement",
     headerClassName: "min-w-[12rem] ",
+  },
+  {
+    header: "LAST NAME",
+    accessor: "last_name",
+    headerClassName: "min-w-[10rem] ",
   },
   {
     header: "OTHER CONTACT",

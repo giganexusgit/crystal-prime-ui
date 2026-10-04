@@ -18,7 +18,6 @@ import toast from "react-hot-toast";
 import { IApiError } from "@/utils";
 
 export function LeadManagement() {
-
   const [isAddLeadModalOpen, setAddLeadModalOpen] = useState(false);
   const { data: allLeadList, leadsRefetch } = useAllLeadsListQuery();
 
@@ -34,7 +33,7 @@ export function LeadManagement() {
   });
 
   const [activeStep, setActiveStep] = useState<"initial" | "addForm" | "excel">(
-    "initial"
+    "initial",
   );
 
   const analyticalCards: AnalyticalCardData[] = [
@@ -100,7 +99,7 @@ export function LeadManagement() {
       }
     },
   });
-    useEffect(() => {
+  useEffect(() => {
     if (formik?.values?.file) {
       formik.submitForm();
     }
@@ -114,21 +113,22 @@ export function LeadManagement() {
 
       <div className="grid grid-cols-1 gap-4 ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4  px-4 ">
-          {analyticalCards?.length > 0 && analyticalCards?.map((card, index) => (
-            <AnalyticalCard
-              key={index}
-              data={card}
-              onClick={() => {
-                const t = card.title?.toLowerCase();
-                const leadsListEl = document.getElementById("leads-list-anchor");
-                if (leadsListEl) leadsListEl.scrollIntoView({ behavior: "smooth" });
-                const ev = new CustomEvent("lead-cards-filter", {
-                  detail: { card: t },
-                });
-                window.dispatchEvent(ev);
-              }}
-            />
-          ))}
+          {analyticalCards?.length > 0 &&
+            analyticalCards?.map((card, index) => (
+              <AnalyticalCard
+                key={index}
+                data={card}
+                // onClick={() => {
+                //   const t = card.title?.toLowerCase();
+                //   const leadsListEl = document.getElementById("leads-list-anchor");
+                //   if (leadsListEl) leadsListEl.scrollIntoView({ behavior: "smooth" });
+                //   const ev = new CustomEvent("lead-cards-filter", {
+                //     detail: { card: t },
+                //   });
+                //   window.dispatchEvent(ev);
+                // }}
+              />
+            ))}
         </div>
         <div id="leads-list-anchor">
           <LeadsListTable setAddLeadModalOpen={setAddLeadModalOpen} />
@@ -194,7 +194,9 @@ export function LeadManagement() {
                           }
                         }}
                         error={
-                          formik?.touched?.file ? formik?.errors?.file : undefined
+                          formik?.touched?.file
+                            ? formik?.errors?.file
+                            : undefined
                         }
                       />
 
@@ -234,7 +236,10 @@ export function LeadManagement() {
       </ModalOverlay>
 
       {activeStep === "addForm" && (
-        <AddLeadModal setAddLeadModalOpen={handleAddFormClose} leadsRefetch={leadsRefetch}/>
+        <AddLeadModal
+          setAddLeadModalOpen={handleAddFormClose}
+          leadsRefetch={leadsRefetch}
+        />
       )}
     </section>
   );

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { Checkbox } from "@/components";
 import { ITableColumn } from "../table";
 
 export interface IMaterialManagementProps {
@@ -45,20 +44,20 @@ export interface IMaterialManagementProps {
 }
 
 export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
-  {
-    header: "ACTIVE",
-    accessor: "active",
-    sortable: true,
-    headerClassName: "min-w-[5rem] ",
-    cell: ({ value }) => (
-      <Checkbox
-        checked={!!value}
-        readOnly
-        disabled
-        className="w-16 h-16 rounded-xl border-4 border-[#6C4BAF] checked:bg-[#6C4BAF] checked:border-[#6C4BAF] focus:ring-0 focus:outline-none"
-      />
-    ),
-  },
+  // {
+  //   header: "ACTIVE",
+  //   accessor: "active",
+  //   sortable: true,
+  //   headerClassName: "min-w-[5rem] ",
+  //   cell: ({ value }) => (
+  //     <Checkbox
+  //       checked={!!value}
+  //       readOnly
+  //       disabled
+  //       className="w-16 h-16 rounded-xl border-4 border-[#6C4BAF] checked:bg-[#6C4BAF] checked:border-[#6C4BAF] focus:ring-0 focus:outline-none"
+  //     />
+  //   ),
+  // },
   {
     header: "MATERIAL NAME",
     accessor: "name",
