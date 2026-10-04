@@ -1193,6 +1193,22 @@ export default function Dashboard() {
               />
             )}
 
+            {/* On Completed Project Snapshot */}
+            <div className="my-6">
+              {userRole.toLowerCase() !== "admin" && completedProjects && (
+                <>
+                  <h1 style={{ fontSize: "1.2rem" }}>
+                    Completed Project Snapshot
+                  </h1>
+
+                  <Table
+                    data={completedProjects}
+                    columns={ProjectColForAdmin}
+                  />
+                </>
+              )}
+            </div>
+
             {/* Delete Modal */}
             {showDeleteModal && taskToDelete && (
               <DeleteModal
