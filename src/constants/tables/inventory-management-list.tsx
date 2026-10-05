@@ -58,11 +58,38 @@ export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
   //     />
   //   ),
   // },
+
   {
-    header: "MATERIAL NAME",
+    header: "CATEGORY",
+    accessor: "category",
+  },
+
+  {
+    header: "ITEM NAME",
     accessor: "name",
     sortable: true,
     headerClassName: "min-w-[10rem] ",
+  },
+  {
+    header: "SPECIFICATION",
+    accessor: "specification",
+  },
+
+  {
+    header: "DATE",
+    accessor: "date",
+  },
+  {
+    header: "STOCK LOCATION",
+    accessor: "stockLocation",
+  },
+  {
+    header: "VENDOR NAME",
+    accessor: "vendorName",
+  },
+  {
+    header: "PRICE",
+    accessor: "prices",
   },
 
   {
@@ -80,6 +107,7 @@ export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
     header: "MIN QUANTITY",
     accessor: "minqty",
   },
+
   {
     header: "QUANTITY",
     accessor: "quantity",
@@ -99,63 +127,35 @@ export const inventoryColumns: ITableColumn<IMaterialManagementProps>[] = [
       );
     },
   },
-
-  {
-    header: "Price",
-    accessor: "prices",
-  },
-  {
-    header: "Date",
-    accessor: "date",
-  },
-  {
-    header: "Stock Location",
-    accessor: "stockLocation",
-  },
-  {
-    header: "Vendor Name",
-    accessor: "vendorName",
-  },
-  {
-    header: "Specification",
-    accessor: "specification",
-  },
-  {
-    header: "Category",
-    accessor: "category",
-  },
 ];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const stockOutColumns: any = [
   {
-    header: "Date",
+    header: "DATE",
     accessor: "date",
   },
   {
-    header: "Name",
+    header: "CATEGORY",
+    accessor: "category",
+  },
+  {
+    header: "ITEM NAME",
     accessor: "name",
+  },
+  {
+    header: "SPECIFICATION",
+    accessor: "specification",
   },
   {
     header: "Total Quantity",
     accessor: "totalQuantity",
   },
-
+  {
+    header: "STOCK BALANCE",
+    accessor: "availableQuantity",
+  },
   {
     header: "Used Quantity",
     accessor: "used",
-  },
-
-  {
-    header: "Available Quantity",
-    accessor: "availableQuantity",
-  },
-
-  {
-    header: "Stock Location",
-    accessor: "stockLocation",
-  },
-  {
-    header: "Vendor",
-    accessor: "vendorName",
   },
 ];

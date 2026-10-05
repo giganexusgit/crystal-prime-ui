@@ -59,6 +59,7 @@ export function StockOutListTable({
       availableQuantity: (item.inventory?.quantity ?? 0) - (item.used ?? 0),
       stockLocation: item.inventory?.stockLocation ?? "N/A",
       vendorName: item.inventory?.vendorName ?? "N/A",
+      category: item.inventory?.category ?? "N/A",
     }));
   // Create columns with interactive checkbox for 'active'
 
