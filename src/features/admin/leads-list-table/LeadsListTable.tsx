@@ -200,6 +200,7 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
 
   const filters = useMemo(
     () => ({
+      isNotAdmin: userRole !== "admin",
       searchText: searchQuery,
       statusId:
         selectedStatus && selectedStatus !== "All Status"
@@ -473,7 +474,7 @@ export function LeadsListTable({ setAddLeadModalOpen }: LeadsListTableProps) {
 
   // Extract pagination data
   const paginationData = allLeadList?.data?.pagination;
-
+  console.log("allLeadList", allLeadList);
   // Handle page change
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

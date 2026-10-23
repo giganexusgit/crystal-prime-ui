@@ -1084,6 +1084,7 @@ export class CommunityClient extends ApiClient {
       followupTo?: string;
       page?: number;
       assignedToId?: string;
+      isNotAdmin?: boolean;
     } = {},
   ) => {
     console.log("filters", filters);
@@ -1095,9 +1096,17 @@ export class CommunityClient extends ApiClient {
       params.append("statusId", filters.statusId);
     if (filters.typeId && filters.typeId !== "All Type")
       params.append("typeId", filters.typeId);
-    if (filters.assignedTo && filters.assignedTo !== "All Assigned To")
+    if (
+      filters.assignedTo &&
+      filters.isNotAdmin &&
+      filters.assignedTo !== "All Assigned To"
+    )
       params.append("assignedToId", filters.assignedTo);
-    if (filters.assignedToId && filters.assignedToId !== "All Assigned To")
+    if (
+      filters.assignedToId &&
+      filters.isNotAdmin &&
+      filters.assignedToId !== "All Assigned To"
+    )
       params.append("assignedToId", filters.assignedToId);
     if (filters.dateRange && filters.dateRange !== "All")
       params.append("dateRange", filters.dateRange);
